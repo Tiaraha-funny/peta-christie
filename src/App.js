@@ -1,22 +1,29 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React from "react"; // get all of it!
-import { MyContext } from "./index";
+import React, { useContext } from "react"; // get all of it!
+import { Context } from "./ContextProvider";
+import Styled from "styled-components";
+import AddFriendForm from "./AddFriendForm";
+
+const Headers = Styled.main`
+  margin: auto;
+  width: 60%;
+  background-color: lightblue;
+  h1 {
+    text-align: center;
+    padding: 16px;
+  }
+`
 
 function App() {
-  return (
-    <MyContext.Consumer>
-      {(data) => {
-        console.log(data);
+  const { myObject } = useContext(Context);
 
-        return (
-          <div className="App">
-            <h1>{data.hi}</h1>
-          </div>
-        );
-      }}
-    </MyContext.Consumer>
-  );
+  return (
+    <Headers>
+      <h1>{myObject.hi} {myObject.name}!!</h1>
+      <AddFriendForm/>
+    </Headers>
+  )
+
 }
 
 export default App;

@@ -3,20 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createContext } from "react"; // just create context sub-module
-
-export const MyContext = createContext({}); // just this piece of code
-
-const myObject = {
-  hi: "hello",
-};
+import { ContextProvider } from "./ContextProvider";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <MyContext.Provider value={myObject}>
-      <App />
-    </MyContext.Provider>
-  </React.StrictMode>,
+  <ContextProvider>
+    <App />
+  </ContextProvider>,
   document.getElementById("root")
 );
 
