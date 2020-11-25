@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Style from "styled-components";
 import { Context } from "./ContextProvider";
 
@@ -30,19 +30,23 @@ padding: 16px;
 `;
 
 function AddFriendForm() {
-  const { handleAddFriendSubmiting, form } = useContext(Context);
+  const { handleAddFriendSubmiting } = useContext(Context);
+  const [name, setName] = useState("");
 
   return (
     <InputStyle>
-      <form onSubmit={handleAddFriendSubmiting}>
+      <form onSubmit={(e) => handleAddFriendSubmiting(name, e)}>
         <label>Add friends</label>
         <br />
         <div className="addInput">
-        <input name="friend" value={form}></input>
-        <button>add</button>
+          <input
+            name="friend"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></input>
+          <button>add</button>
         </div>
       </form>
-      <div>{form}</div>
     </InputStyle>
   );
 }
