@@ -28,7 +28,7 @@ function ContextProvider({ children }) {
     }
 
     return (
-        <Context.Provider value={{myObject, handleAddFriendSubmiting }}>
+        <Context.Provider value={{myObject, handleAddFriendSubmiting, addFriend }}>
             {children}
         </Context.Provider>
     )

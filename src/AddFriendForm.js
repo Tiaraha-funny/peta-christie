@@ -30,7 +30,7 @@ padding: 16px;
 `;
 
 function AddFriendForm() {
-  const { handleAddFriendSubmiting, form } = useContext(Context);
+  const { handleAddFriendSubmiting, addFriend } = useContext(Context);
 
   return (
     <InputStyle>
@@ -38,11 +38,11 @@ function AddFriendForm() {
         <label>Add friends</label>
         <br />
         <div className="addInput">
-        <input name="friend" value={form}></input>
+        <input name="friend" ></input>
         <button>add</button>
         </div>
       </form>
-      <div>{form}</div>
+      <div>{addFriend}</div>
     </InputStyle>
   );
 }
