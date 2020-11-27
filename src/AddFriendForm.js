@@ -59,7 +59,6 @@ function AddFriendForm() {
   console.log(on);
 
   function Unfriend(friendId) {
-    console.log("unfriend this friend");
     const filterFriendById = friends.filter(friend => friend.id !== friendId);
     setFriends(filterFriendById);
   }
